@@ -1,0 +1,30 @@
+﻿@model User
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div>
+
+    <form asp-controller="Home" asp-action="RegisterUser" method="post">
+        REGISTER:
+        <br />
+        First Name:
+        <input type="text" asp-for="FirstName"/>
+        Last Name:
+        <input type="text" asp-for="LastName"/>
+        Email:
+        <input type="text" asp-for="Email"/>
+        Mobile Number:
+        <input type="text" asp-for="Number"/>
+        Visitor Type:
+        <select asp-for="Type">
+            @foreach (var type in Enum.GetValues(typeof(UserType)))
+            {
+                <option value="@type">@type</option>
+            }
+        </select>
+        <br/>
+        <input type="submit"/>
+    </form>
+
+</div>
